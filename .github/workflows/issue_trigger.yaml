@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: Add markdown
         run: |
-          cd ./_markdowns
           cat <<EOF > ${{ github.event.issue.title }}.md
           ${{ github.event.issue.body }}
           EOF
