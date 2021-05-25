@@ -8,7 +8,11 @@ jobs:
         run: |
           echo "Issue title: ${{ github.event.issue.title }}"
           echo "Issue body: ${{ github.event.issue.body }}"
-      - name: View the github context
-        run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+      - name: Add markdown
+        run: |
+          cd ./_markdowns
+          cat <<EOF > ${{ github.event.issue.title }}.md
+          ${{ github.event.issue.body }}
+          EOF
+          ls .
+          cat ${{ github.event.issue.title }}.md
