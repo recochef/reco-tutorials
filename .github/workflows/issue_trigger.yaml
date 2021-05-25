@@ -4,10 +4,6 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: View issue information
-        run: |
-          echo "Issue title: ${{ github.event.issue.title }}"
-          echo "Issue body: ${{ github.event.issue.body }}"
       - name: Add markdown
         run: |
           cd ./_markdowns
